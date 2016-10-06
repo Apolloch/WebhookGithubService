@@ -24,14 +24,17 @@ public class UnzipUtility {
      * @param destDirectory
      * @throws IOException
      */
-    public static void unzip(String zipFilePath, String destDirectory) throws IOException {
+    public static File unzip(String zipFilePath, String destDirectory) throws IOException {
         File destDir = new File(destDirectory);
+        String firstFilePath;
+
         if (!destDir.exists()) {
             destDir.mkdir();
         }
         ZipInputStream zipIn = new ZipInputStream(new FileInputStream(zipFilePath));
         ZipEntry entry = zipIn.getNextEntry();
         // iterates over entries in the zip file
+        firstFilePath = destDirectory + File.separator + entry.getName();
         while (entry != null) {
             String filePath = destDirectory + File.separator + entry.getName();
             if (!entry.isDirectory()) {
@@ -46,6 +49,7 @@ public class UnzipUtility {
             entry = zipIn.getNextEntry();
         }
         zipIn.close();
+        return new File(firstFilePath);
     }
     /**
      * Extracts a zip entry (file entry)
