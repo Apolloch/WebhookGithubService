@@ -1,5 +1,6 @@
 package fr.univlille1.m2iagl.bacquetdurey.analysis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ConstructorAnalysis extends Analysis{
@@ -13,6 +14,8 @@ public abstract class ConstructorAnalysis extends Analysis{
 	public ConstructorAnalysis(String constructorName, String commentText){
 		this.constructorName = constructorName;
 		this.commentText = commentText;
+
+		this.parametersAnalysis = new ArrayList<>();
 	}
 	
 	public void addParameterAnalysis(ParameterAnalysis parameterAnalysis){

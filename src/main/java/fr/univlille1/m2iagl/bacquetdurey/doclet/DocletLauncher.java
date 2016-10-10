@@ -9,9 +9,9 @@ public class DocletLauncher {
 
 	private final static String JAR_PATH = "./lib/com-sun-javadoc.jar";
 	private final static String DOCLET_SRC_FILE = "/src/main/java/fr/univlille1/m2iagl/bacquetdurey/doclet/GetJavadocDoclet.java";
-	private final static String DOCLET_OPTION = "fr.univlille1.m2iagl.GetJavadocDoclet";
+	private final static String DOCLET_OPTION = "fr.univlille1.m2iagl.bacquetdurey.doclet.GetJavadocDoclet";
 	
-	private final static String DOCLET_PATH_OPTION = "bin";
+	private final static String DOCLET_PATH_OPTION = "bin/main/java";
 
 	private String pathToCheck;
 	private List<String> packages;
@@ -24,6 +24,9 @@ public class DocletLauncher {
 		Model.currentModel = model;
 		this.packages = packages;
 		this.pathToCheck = pathToCheck;
+
+		//System.out.println(packages.toString());
+
 		if(!compile())
 			return false;
 
@@ -55,12 +58,12 @@ public class DocletLauncher {
 		String packageNames = "";
 		
 		for(int i=0;i<packages.size()-1;i++){
-			packageNames += packages.get(i) + " ";
+			packageNames += packages.get(i) + ":";
 		}
 		
 		packageNames += packages.get(packages.size()-1);
 		
-		com.sun.tools.javadoc.Main.execute(new String[]{"-docletpath", DOCLET_PATH_OPTION, "-doclet", DOCLET_OPTION, "-sourcepath", pathToCheck, packageNames});
+		com.sun.tools.javadoc.Main.execute(new String[]{"-docletpath", DOCLET_PATH_OPTION, "-doclet", DOCLET_OPTION, "-sourcepath", pathToCheck, "-subpackages", packageNames});
 		
 		return true;
 	}
