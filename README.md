@@ -1,4 +1,4 @@
-# JavDoc checker for pull_requests
+# JavaDoc checker for pull requests
 this is a Javaee webservice for automatically getting files from a pull request in Java projects and run an analyse on the javadoc.
 
 # How to run it :
