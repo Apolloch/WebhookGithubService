@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>GithubHookServlet</servlet-name>
-    <servlet-class>GithubHookServlet</servlet-class>
+    <servlet-class>fr.univlille1.m2iagl.bacquetdurey.webhook.GithubHookServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GithubHookServlet</servlet-name>

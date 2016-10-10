@@ -37,6 +37,7 @@
 
 
 
+
   </dependencies>
   <build>
     <finalName>WebHookGithubService</finalName>
@@ -46,10 +47,10 @@
           <artifactId>jetty-maven-plugin</artifactId>
           <version>9.3.0.v20150612</version>
       </plugin>
-        <plugin>
+<!--        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-        </plugin>
+        </plugin>-->
     </plugins>
   </build>
 </project>
